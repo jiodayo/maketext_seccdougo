@@ -1,6 +1,6 @@
 # 講演レポート生成アプリ
 
-講演のメモや書き起こしテキストを入力すると、OpenAI GPT（gpt-4o）を使って約 350〜400 文字の構造化されたイベントレポートを自動生成する Streamlit Web アプリです。
+講演のメモや書き起こしテキストを入力すると、OpenAI GPT（gpt-4o）かGemini AIを使って約 350〜400 文字の構造化されたイベントレポートを自動生成する Streamlit Web アプリです。
 
 ## 生成されるレポートの構成
 
@@ -52,7 +52,7 @@ API キーは [OpenAI Platform](https://platform.openai.com/api-keys) から取�
 streamlit run app.py
 ```
 
-ブラウザが自動で開き、アプリが表示されます（デフォルト: http://localhost:8501）。
+ブラウザが自動で開き、アプリが表示されます。
 
 ## 使い方
 
