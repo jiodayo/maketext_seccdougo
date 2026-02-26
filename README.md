@@ -38,18 +38,32 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-`.env` ファイルを開き、`OPENAI_API_KEY` に実際の API キーを設定してください。
+`.env` ファイルを開き、使用する API のキーを設定してください。
+
+| 変数名 | 用途 | 取得先 |
+|--------|------|--------|
+| `OPENAI_API_KEY` | OpenAI 版（`app.py`）で使用 | [OpenAI Platform](https://platform.openai.com/api-keys) |
+| `GOOGLE_API_KEY` | Google AI Studio 版（`app_google.py`）で使用 | [Google AI Studio](https://aistudio.google.com/app/apikey) |
 
 ```
 OPENAI_API_KEY=sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+GOOGLE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-API キーは [OpenAI Platform](https://platform.openai.com/api-keys) から取得できます。
+※ 使用するバージョンに対応するキーのみ設定すれば OK です。
 
 ## 起動
 
+### OpenAI 版（gpt-4o）
+
 ```bash
 streamlit run app.py
+```
+
+### Google AI Studio 版（Gemini）
+
+```bash
+streamlit run app_google.py
 ```
 
 ブラウザが自動で開き、アプリが表示されます。
@@ -60,9 +74,20 @@ streamlit run app.py
 2. 「🚀 レポートを生成」ボタンをクリック
 3. 生成されたレポートが画面に表示される（コピー用プレーンテキストも展開可能）
 
+## ファイル構成
+
+| ファイル | 説明 |
+|----------|------|
+| `app.py` | OpenAI GPT（gpt-4o）版メインアプリ |
+| `app_google.py` | Google AI Studio（Gemini）版メインアプリ |
+| `requirements.txt` | 依存パッケージ一覧 |
+| `.env.example` | 環境変数テンプレート |
+| `.gitignore` | Git 除外設定 |
+
 ## 技術スタック
 
 - **Python 3.10+**
 - **Streamlit** — Web UI
-- **OpenAI API** (gpt-4o) — テキスト生成
+- **OpenAI API** (gpt-4o) — テキスト生成（`app.py`）
+- **Google Generative AI** (Gemini) — テキスト生成（`app_google.py`）
 - **python-dotenv** — 環境変数管理
